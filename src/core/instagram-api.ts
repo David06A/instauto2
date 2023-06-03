@@ -120,12 +120,15 @@ export class InstagramApi {
   }
 
   async tryToLogin(username: string, password: string): Promise<void> {
+    this.logger.log(`entering username`);
     await this.page.type('input[name="username"]', username, { delay: 50 });
     await Utils.sleep(1000);
 
+    this.logger.log(`entering password`);
     await this.page.type('input[name="password"]', password, { delay: 50 });
     await Utils.sleep(1000);
 
+    this.logger.log(`pressing login button`);
     await this.tryPressLogIn();
     await Utils.sleep(6000);
   }
@@ -145,6 +148,8 @@ export class InstagramApi {
         this.logger.log(`Pressing button: ${name}`);
         elementHandles[0].click();
         await Utils.sleep(3000);
+      } else {
+        this.logger.warn(`Button not found: ${name}`);
       }
     } catch (err) {
       this.logger.warn(`Failed to press button: ${name}`);

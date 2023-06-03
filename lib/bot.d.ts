@@ -17,7 +17,7 @@ export declare class InstautoCtr {
     tryLoadCookies(): Promise<void>;
     trySaveCookies(): Promise<void>;
     tryDeleteCookies(): Promise<void>;
-    followUsersFollowers({ usersToFollowFollowersOf, maxFollowsTotal, skipPrivate, enableLikeImages, likeImagesMin, likeImagesMax }: {
+    followUsersFollowers({ usersToFollowFollowersOf, maxFollowsTotal, skipPrivate, enableLikeImages, likeImagesMin, likeImagesMax, }: {
         usersToFollowFollowersOf: any;
         maxFollowsTotal?: number;
         skipPrivate: any;
@@ -27,7 +27,7 @@ export declare class InstautoCtr {
     }): Promise<void>;
     followCurrentUser(username: string): Promise<void>;
     unfollowCurrentUser(username: string): Promise<UnFollower>;
-    getFollowersOrFollowing({ userId, getFollowers, maxFollowsPerUser, maxPages }: {
+    getFollowersOrFollowing({ userId, getFollowers, maxFollowsPerUser, maxPages, }: {
         userId: number;
         getFollowers: boolean;
         maxFollowsPerUser?: number;
@@ -41,13 +41,13 @@ export declare class InstautoCtr {
         likeImagesMax: number;
     }): Promise<void>;
     safelyUnfollowUserList(usersToUnfollow: string[], limit: number): Promise<void>;
-    unfollowNonMutualFollowers({ limit }?: {
+    unfollowNonMutualFollowers({ limit, }?: {
         limit?: number;
     }): Promise<void>;
-    unfollowAllUnknown({ limit }?: {
+    unfollowAllUnknown({ limit, }?: {
         limit?: number;
     }): Promise<void>;
-    unfollowOldFollowed({ ageInDays, limit }?: {
+    unfollowOldFollowed({ ageInDays, limit, }?: {
         ageInDays?: number;
         limit?: number;
     }): Promise<number>;
