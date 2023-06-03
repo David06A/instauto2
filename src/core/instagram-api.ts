@@ -29,7 +29,7 @@ const pageContent = new Map<symbol, string>([
   [Unfollow, "//button[text()='Unfollow']"],
   [IsLoggedIn, '//*[@aria-label="Home"]'],
   [AcceptCookies, '//button[contains(text(), "Allow all cookies")]'],
-  [LogIn, '//button[contains(text(), "Log In")]'],
+  [LogIn, 'button[type="submit"] div[class^="x9f619"]:contains("Log In")'],
   [LogInMobile, '//button[contains(text(), "Log In")]'],
   [SaveLoginInfo, '//button[contains(text(), "Save Info")]'],
   [NotificationDialogNotNow, '//button[contains(text(), "Not Now")]'],
@@ -131,10 +131,9 @@ export class InstagramApi {
   }
 
   private async tryPressLogIn(): Promise<void> {
+    this.logger.log(`Pressing button: Log In`);
     const element = await this.page.$x(pageContent.get(LogIn));
     await this.tryPressButton(element, 'Login form button');
-    const element2 = await this.page.$x(pageContent.get(LogInMobile));
-    await this.tryPressButton(element2, 'Login form button');
   }
 
   private async tryPressButton(

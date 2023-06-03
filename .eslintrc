@@ -23,7 +23,7 @@
   "rules": {
     "indent": [
       "error",
-      "tab"
+      2
     ],
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/quotes": [
