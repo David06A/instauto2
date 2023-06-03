@@ -29,7 +29,7 @@ const pageContent = new Map<symbol, string>([
   [Unfollow, "//button[text()='Unfollow']"],
   [IsLoggedIn, '//*[@aria-label="Home"]'],
   [AcceptCookies, '//button[contains(text(), "Allow all cookies")]'],
-  [LogIn, '//button[contains(text(), "Log In")]'],
+  [LogIn, '//div[contains(@class, "x9f619") and contains(text(), "Log in")]'],
   [LogInMobile, '//button[contains(text(), "Log In")]'],
   [SaveLoginInfo, '//button[contains(text(), "Save Info")]'],
   [NotificationDialogNotNow, '//button[contains(text(), "Not Now")]'],
