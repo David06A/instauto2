@@ -766,10 +766,7 @@ export class InstautoCtr {
   }
 
   private async navigateToUserAndGetData(username: string): Promise<any> {
-    // https://github.com/mifi/SimpleInstaBot/issues/36
     if (this.graphqlUserMissing) {
-      // https://stackoverflow.com/questions/37593025/instagram-api-get-the-userid
-      // https://stackoverflow.com/questions/17373886/how-can-i-get-a-users-media-from-instagram-without-authenticating-as-a-user
       const found = await this.safeGoto(
         `${this.options.instagramBaseUrl}/${encodeURIComponent(username)}?__a=1`
       );

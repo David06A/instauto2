@@ -29,10 +29,7 @@ const pageContent = new Map<symbol, string>([
   [Unfollow, "//button[text()='Unfollow']"],
   [IsLoggedIn, '//*[@aria-label="Home"]'],
   [AcceptCookies, '//button[contains(text(), "Allow all cookies")]'],
-  [
-    LogIn,
-    "//button[contains(@class, '_acan') and contains(@class, '_acap') and contains(@class, '_acas') and contains(@class, '_aj1-') and @disabled and @type='submit']/div[contains(@class, 'x9f619') and contains(@class, 'xjbqb8w') and contains(@class, 'x78zum5') and contains(@class, 'x168nmei') and contains(@class, 'x13lgxp2') and contains(@class, 'x5pf9jr') and contains(@class, 'xo71vjh') and contains(@class, 'x1n2onr6') and contains(@class, 'x1plvlek') and contains(@class, 'xryxfnj') and contains(@class, 'x1c4vz4f') and contains(@class, 'x2lah0s') and contains(@class, 'xdt5ytf') and contains(@class, 'xqjyukv') and contains(@class, 'x1qjc9v5') and contains(@class, 'x1oa3qoh') and contains(@class, 'x1nhvcw1') and text()='Log in']",
-  ],
+  [LogIn, '//button[contains(., "Log in")]'],
   [LogInMobile, '//button[contains(text(), "Log In")]'],
   [SaveLoginInfo, '//button[contains(text(), "Save Info")]'],
   [NotificationDialogNotNow, '//button[contains(text(), "Not Now")]'],
