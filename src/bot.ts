@@ -46,6 +46,8 @@ export class InstautoCtr {
   async setup(): Promise<void> {
     await this.initContext();
 
+    if (this.options.enableCookies) await this.tryLoadCookies();
+
     await this.page.goto(`${this.options.instagramBaseUrl}/`);
     await Utils.sleep(1000);
 
