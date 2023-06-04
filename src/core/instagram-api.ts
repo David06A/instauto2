@@ -106,8 +106,10 @@ export class InstagramApi {
   }
 
   async tryPressSaveLogInInfo(): Promise<void> {
-    const element = await this.page.$x(pageContent.get(SaveLoginInfo));
-    return this.tryPressButton(element, 'Save login info dialog');
+    const element = await this.page.$x(
+      pageContent.get(NotificationDialogNotNow)
+    );
+    return this.tryPressButton(element, 'Save login info dialog not now');
   }
 
   async tryPressNotNowNotificationDialog(): Promise<void> {
