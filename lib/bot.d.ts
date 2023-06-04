@@ -1,8 +1,9 @@
-import { Browser } from 'puppeteer-core';
+import { Browser, Page } from 'puppeteer-core';
 import { AbstractDbAdapter, BotOptions, UnFollower } from './core';
 export declare class InstautoCtr {
     private readonly db;
     private readonly browser;
+    private page;
     private options;
     private botWorkShiftHours;
     private dayMs;
@@ -10,8 +11,7 @@ export declare class InstautoCtr {
     private graphqlUserMissing;
     private instagramApi;
     private logger;
-    private page;
-    constructor(db: AbstractDbAdapter, browser: Browser, options: BotOptions);
+    constructor(db: AbstractDbAdapter, browser: Browser, page: Page, options: BotOptions);
     get sleep(): (ms: number, dev?: number) => Promise<string>;
     setup(): Promise<void>;
     tryLoadCookies(): Promise<void>;
@@ -69,4 +69,4 @@ export declare class InstautoCtr {
     private likeCurrentUserImagesPageCode;
     private likeCurrentUserImages;
 }
-export declare const Instauto: (db: AbstractDbAdapter, browser: Browser, options: BotOptions) => Promise<InstautoCtr>;
+export declare const Instauto: (db: AbstractDbAdapter, browser: Browser, page: Page | undefined, options: BotOptions) => Promise<InstautoCtr>;

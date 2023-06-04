@@ -31,11 +31,11 @@ export class InstautoCtr {
 
   private instagramApi: InstagramApi;
   private logger: Logger;
-  private page: Page;
 
   constructor(
     private readonly db: AbstractDbAdapter,
     private readonly browser: Browser,
+    private page: Page,
     private options: BotOptions
   ) {}
 
@@ -951,9 +951,10 @@ export class InstautoCtr {
 export const Instauto = async (
   db: AbstractDbAdapter,
   browser: Browser,
+  page: Page | undefined,
   options: BotOptions
 ): Promise<InstautoCtr> => {
-  const instance = new InstautoCtr(db, browser, options);
+  const instance = new InstautoCtr(db, browser, page, options);
   await instance.setup();
   return instance;
 };
