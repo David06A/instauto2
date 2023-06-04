@@ -651,7 +651,9 @@ export class InstautoCtr {
       'Max follows per hour too low compared to max follows per day'
     );
     this.instagramApi = new InstagramApi(this.browser, this.logger);
-    this.page = await this.instagramApi.startNewPage();
+    if (!!!this.page) {
+      this.page = await this.instagramApi.startNewPage();
+    }
   }
 
   private async takeScreenshot(): Promise<void> {
