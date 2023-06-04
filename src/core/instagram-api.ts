@@ -46,9 +46,8 @@ export class InstagramApi {
     Utils.logger = logger;
   }
 
-  async startNewPage(): Promise<Page> {
-    if (this.page) return this.page;
-    const page = await this.browser.newPage();
+  async startNewPage(overridePage: Page | undefined): Promise<Page> {
+    const page = overridePage ?? (await this.browser.newPage());
     this.page = Utils.puppeteerPageOverride(page);
     return this.page;
   }
