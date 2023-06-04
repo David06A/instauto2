@@ -5,7 +5,7 @@ export declare class InstagramApi {
     private readonly logger;
     private page;
     constructor(browser: Browser, logger: Logger);
-    startNewPage(): Promise<Page>;
+    startNewPage(overridePage: Page | undefined): Promise<Page>;
     isActionBlocked(): Promise<boolean>;
     getFollowButton(): Promise<ElementHandle>;
     getUnfollowButton(): Promise<ElementHandle>;
