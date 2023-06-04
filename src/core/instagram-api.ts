@@ -98,8 +98,8 @@ export class InstagramApi {
   }
 
   async tryPressAcceptCookies(): Promise<void> {
-    const element = await this.page.$x(pageContent.get(AcceptCookies));
-    if (!!!element || element.length === 0) return;
+    const element = (await this.page.$x(pageContent.get(AcceptCookies))) || [];
+    if (!!!element || element === undefined || element.length === 0) return;
     return this.tryPressButton(element, 'Accept cookies dialog');
   }
 
