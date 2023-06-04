@@ -31,7 +31,10 @@ const pageContent = new Map<symbol, string>([
   [AcceptCookies, '//button[contains(text(), "Allow all cookies")]'],
   [LogIn, "//button[.//div[contains(., 'Log in')]]"],
   [LogInMobile, '//button[contains(text(), "Log In")]'],
-  [SaveLoginInfo, '//button[contains(text(), "Save Info")]'],
+  [
+    SaveLoginInfo,
+    "//div[contains(@class, 'x1i10hfl') and contains(text(), 'Not now')]",
+  ],
   [NotificationDialogNotNow, '//button[contains(text(), "Not Now")]'],
   [AuthSwitcher, 'a[href="/accounts/login/?source=auth_switcher"]'],
 ]);
@@ -106,10 +109,8 @@ export class InstagramApi {
   }
 
   async tryPressSaveLogInInfo(): Promise<void> {
-    const element = await this.page.$x(
-      pageContent.get(NotificationDialogNotNow)
-    );
-    return this.tryPressButton(element, 'Save login info dialog not now');
+    const element = await this.page.$x(pageContent.get(SaveLoginInfo));
+    return this.tryPressButton(element, 'Save login info dialog');
   }
 
   async tryPressNotNowNotificationDialog(): Promise<void> {
