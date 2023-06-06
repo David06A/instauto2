@@ -46,6 +46,13 @@ export class InstautoCtr {
   async setup(): Promise<void> {
     await this.initContext();
 
+    if (this.options.randomizeUserAgent) {
+      const userAgentGenerated = new UserAgent({ deviceCategory: 'desktop' });
+      await this.page.setUserAgent(userAgentGenerated.toString());
+    }
+    if (this.options.userAgent)
+      await this.page.setUserAgent(this.options.userAgent);
+
     if (this.options.enableCookies) await this.tryLoadCookies();
 
     await this.page.goto(`${this.options.instagramBaseUrl}/`);
