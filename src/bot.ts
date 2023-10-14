@@ -96,10 +96,16 @@ export class InstautoCtr {
       }
 
       let warnedAboutLoginFail = false;
+      let fails = 0;
       while (!(await this.instagramApi.isLoggedIn())) {
         if (!warnedAboutLoginFail)
           this.logger.warn(languageManager.messages.loginFailed);
         warnedAboutLoginFail = true;
+        fails++;
+        if (fails > 3) {
+          await this.tryDeleteCookies();
+          throw new Error('Failed to login too many times');
+        }
         await Utils.sleep(5000);
       }
 
