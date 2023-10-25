@@ -55,14 +55,18 @@ export class InstautoCtr {
 
     if (this.options.enableCookies) await this.tryLoadCookies();
 
-    await this.page.goto(`${this.options.instagramBaseUrl}/`);
+    await this.page.goto(`${this.options.instagramBaseUrl}/`, {
+      waitUntil: 'networkidle0',
+    });
     await Utils.sleep(1000);
 
     this.logger.log(languageManager.messages.settingInstagramLanguage);
     await this.page.setCookie({ name: 'ig_lang', path: '/', value: 'en' });
     await Utils.sleep(1000);
 
-    await this.page.goto(`${this.options.instagramBaseUrl}/`);
+    await this.page.goto(`${this.options.instagramBaseUrl}/`, {
+      waitUntil: 'networkidle0',
+    });
     await Utils.sleep(3000);
 
     await this.instagramApi.tryPressAcceptCookies();
